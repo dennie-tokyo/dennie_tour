@@ -45,10 +45,12 @@ http://localhost:8080/
 ## 5. リリース
 
 ### 5.1. リリース資材作成
-srcディレクトリ以下のディレクトリ、ファイルを圧縮します。
+macOS の標準 tar を使用して、srcディレクトリ以下のディレクトリ、ファイルを圧縮します。
+`.DS_Store`、拡張属性、macOS の付加情報（`._` ファイル）を除外し、サーバでの展開時に未知の拡張ヘッダに関する警告が出ることを防ぎます。
 
 ```sh
-tar zcvf dennie_tour.tar.gz dennie_tour/src/
+cd path/to/dennie_tour
+tar --no-xattrs --no-mac-metadata --exclude='.DS_Store' -zcvf dennie_tour.tar.gz src/
 ls -al
 ```
 
@@ -64,7 +66,7 @@ ls -al
 ```sh
 cd dennie.tokyo/public_html
 mkdir release
-tar -zxvf dennie_tour.tar.gz -C release --strip-components=2
+tar -zxvf dennie_tour.tar.gz -C release --strip-components=1
 ls -al release
 ```
 
@@ -88,6 +90,7 @@ https://dennie.tokyo/tour
 
 ```sh
 cd dennie.tokyo/public_html
+rm dennie_tour.tar.gz
 rm -rf tour_bk
 ```
 
