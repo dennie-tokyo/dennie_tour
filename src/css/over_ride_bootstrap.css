@@ -1,0 +1,36 @@
+
+.navbar-toggler:focus{
+    box-shadow: none;
+}
+
+.container {
+    margin-left:0px;
+  }
+
+.row {
+    padding-left:0px;
+}
+
+.col-sm {
+    padding-left:0px;
+}
+
+.nav-item {
+    font-size: 12px;
+}
+
+.nav-item.active {
+    background-color: #000000;
+}
+
+.nav-item.active .nav-link{
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* 最大フォントサイズ : 幅 680px 以上は 24px */
+@media (max-width: 991px) {
+    .nav-item.active .nav-link{
+        padding-left: 15px;
+    }
+}

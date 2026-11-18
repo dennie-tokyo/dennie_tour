@@ -1,0 +1,13 @@
+Options -Indexes -MultiViews
+DirectoryIndex index.php
+RewriteEngine On
+
+# Keep extensionless URLs and old .html links working.
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^([a-z_]+)$ $1.php [END]
+
+RewriteCond %{REQUEST_FILENAME} ^(.+)\.html$
+RewriteCond %1.php -f
+RewriteRule ^([a-z_]+)\.html$ $1.php [END]

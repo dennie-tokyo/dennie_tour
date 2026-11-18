@@ -1,0 +1,79 @@
+@font-face {
+	font-family: 'MyFont';
+	src: url("../fonts/komadori-mini.otf");
+}
+
+/* ヘッダーナビゲーション START */
+.nav-style-de {
+  border: none;
+  border-bottom: solid 1px #dcdcdc;
+}
+/* ヘッダーナビゲーション END */
+
+/* ヘッダーナビゲーション トグルボタン START */
+.nav-toggle-style {
+  border: none;
+}
+/* ヘッダーナビゲーション トグルボタン END */
+
+/* TOPメニューリスト START */
+.top-menu-list {
+  margin-top: 100px;
+}
+
+.top-menu-list-item {
+  margin-bottom: 20px;
+}
+/* TOPメニューリスト END */
+
+.top_title {
+  color: #e233cb;
+  text-align: center;
+}
+
+.top_comment {
+  text-align: center;
+}
+
+.top_comment-item {
+  font-size: 10px;
+  color: #696969;
+  vertical-align:middle;
+  text-align: center;
+}
+
+.intro {
+  margin-top: 80px;
+  margin-bottom: 100px;
+}
+
+.list-style {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.copy_write_box {
+  margin-top: 80px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  font-size: 10px;
+  text-align: center;
+  background-color: #696969;
+  color: #ffffff;
+}
+
+.attention {
+  font-weight: bold;
+  color: red;
+}
+
+/* 最大フォントサイズ : 幅 1280px 以上は 24px */
+@media (min-width: 1280px) {
+  .top_title {
+    /*font-size: 70px;*/
+  }
+}
+
+/* 最大フォントサイズ : 幅 680px 以上は 24px */
+@media (max-width: 680px) {
+}
