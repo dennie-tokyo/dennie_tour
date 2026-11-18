@@ -1,52 +1,99 @@
 # DENNIE.TOUR(でにツアー)
 DENNIE.TOUR(でにツアー)のホームページ<br>
 
-## はじめに
+## 1. はじめに
 DENNIE.TOUR(でにツアー)のホームページになります。<br>
 
-## 前提
+## 2. 前提
 ローカル開発環境は docker、docker compose を利用する事を前提とします。<br>
 
-## ローカル環境の説明
+## 3. ローカル環境の説明
 - php: 8.5
 - webサーバ: apache2.4
 
-## 環境構築
+## 4. 環境構築
 
-### リポジトリのクローン
+### 4.1. リポジトリのクローン
+個人と会社でアカウントを使い分けている為、ホスト名が `github.com-personal` となっています。
+
 ```sh
-git clone git@github.com:Three-KC/corporate.git
+git clone git@github.com-personal:dennie-tokyo/dennie_tour.git
 ```
 
-### 環境の構築
+### 4.2. 環境の構築
 
 ```sh
 cd dennie_tour
 docker compose up -d --build
 ```
-#### 補足
+#### 4.2.1. 補足
 
-##### ポート被り
+##### 4.2.1.1. ポート被り
 8080 番ポートが使用中の場合は、以下のコマンドでビルドして下さい。<br>
 
 ```sh
 WEB_PORT=8081 docker compose up -d --build
 ```
 
-### 確認
+### 4.3. 確認
 ポート番号を変更した場合は適宜変更したポート番号を指定して下さい。<br>
 
 ```
 http://localhost:8080/
 ```
 
-## リリース
+## 5. リリース
 
+### 5.1. リリース資材作成
+srcディレクトリ以下のディレクトリ、ファイルを圧縮します。
 
+```sh
+tar zcvf dennie_tour.tar.gz dennie_tour/src/
+ls -al
+```
 
-## その他
+### 5.2. リリース資材配置
+リリース資材をFTPにてレンタルサーバへ配置します。
 
-### dockerコマンド
+### 5.3. SSHログイン
+レンタルサーバへSSHログインします。
+
+### 5.4. デプロイ
+レンタルサーバへ配置したリリース資材を展開します。
+
+```sh
+cd dennie.tokyo/public_html
+mkdir release
+tar -zxvf dennie_tour.tar.gz -C release --strip-components=2
+ls -al release
+```
+
+### 5.5. リリース
+リリースします。
+
+```sh
+mv tour tour_bk
+mv release tour
+```
+
+### 5.6. 確認
+webページが表示される事を確認して下さい。
+
+```
+https://dennie.tokyo/tour
+```
+
+### 5.7. リリース後の掃除
+サーバ内を綺麗にします。<br>
+
+```sh
+cd dennie.tokyo/public_html
+rm -rf tour_bk
+```
+
+## 6. その他
+
+### 6.1. dockerコマンド
 
 ```sh
 # 状態・ログ
