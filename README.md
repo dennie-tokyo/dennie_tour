@@ -14,8 +14,10 @@ DENNIE.TOUR(でにツアー)のホームページになります。<br>
 ## 環境構築
 
 ### リポジトリのクローン
+個人と会社でアカウントを使い分けている為、ホスト名が `github.com-personal` となっている。
+
 ```sh
-git clone git@github.com:Three-KC/corporate.git
+git clone git@github.com-personal:dennie-tokyo/dennie_tour.git
 ```
 
 ### 環境の構築
