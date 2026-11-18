@@ -44,7 +44,52 @@ http://localhost:8080/
 
 ## リリース
 
+### リリース資材作成
+srcディレクトリ以下のディレクトリ、ファイルを圧縮します。
 
+```sh
+tar zcvf dennie_tour.tar.gz dennie_tour/src/
+ls -al
+```
+
+### リリース資材配置
+リリース資材をFTPにてレンタルサーバへ配置します。
+
+### SSHログイン
+レンタルサーバへSSHログインします。
+
+### デプロイ
+レンタルサーバへ配置したリリース資材を展開します。
+
+```sh
+cd dennie.tokyo/public_html
+mkdir release
+tar -zxvf dennie_tour.tar.gz -C release --strip-components=2
+ls -al release
+```
+
+### リリース
+リリースします。
+
+```sh
+mv tour tour_bk
+mv release tour
+```
+
+### 確認
+webページが表示される事を確認して下さい。
+
+```
+https://dennie.tokyo/tour
+```
+
+### リリース後の掃除
+サーバ内を綺麗にします。<br>
+
+```sh
+cd dennie.tokyo/public_html
+rm -rf tour_bk
+```
 
 ## その他
 
